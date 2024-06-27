@@ -1,7 +1,9 @@
 module Api
     class ProfilesController < ApplicationController
         def index
-            profiles = Profile.all.map do |profile|
+            # puts params
+            profiles = get_matching_profiles(params['search_term']).map do |profile|
+            # profiles = Profile.all.map do |profile|
                 {
                     name: profile.name,
                     profilePic: profile.profilePic,
@@ -25,5 +27,14 @@ module Api
             end
             render(json: {profiles: profiles})
         end
+
+        def get_matching_profiles(search_term)
+            if search_term.blank?
+                Profile.all
+            else
+                Profile.where("name ILIKE :search_term OR education ILIKE :search_term", search_term: "%#{search_term}%")
+            end
+        end
+
     end
 end

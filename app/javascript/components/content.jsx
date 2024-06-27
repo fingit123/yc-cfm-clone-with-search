@@ -1,6 +1,19 @@
 import React from "react";
+import SearchFilter from "./searchFilter";
 
-export default function Content() {
+export default function Content({
+  displayedUser,
+  setDisplayedUser,
+  setSearchTerm,
+}) {
+  const myInterests = [
+    "Consumer",
+    "Education / Edtech",
+    "Entertainment",
+    "Food / Beverage",
+    "E-Commerce",
+  ];
+
   return (
     <div class="css-kg8wej e1ha82nc1">
       <div class="css-m9g13j e1ha82nc5">
@@ -42,7 +55,7 @@ export default function Content() {
             />
             <div class="css-4vtf95">
               <div class="css-1jzdv8h">
-                <h1 class="css-1s8r69b">Gil Dexter</h1>
+                <h1 class="css-1s8r69b">{displayedUser?.name}</h1>
                 <div class="css-1a4tupa">
                   <button class="css-xf9j1d e10og2in4">
                     <svg
@@ -66,7 +79,8 @@ export default function Content() {
                   >
                     <path d="M12 12c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm6-1.8C18 6.57 15.35 4 12 4s-6 2.57-6 6.2c0 2.34 1.95 5.44 6 9.14 4.05-3.7 6-6.8 6-9.14zM12 2c4.2 0 8 3.22 8 8.2 0 3.32-2.67 7.25-8 11.8-5.33-4.55-8-8.48-8-11.8C4 5.22 7.8 2 12 2z"></path>
                   </svg>
-                  New York, NY, USA
+                  {/* New York, NY, USA */}
+                  {displayedUser?.location}
                 </div>
                 <div title="Age" class="css-1dnaxzp e10og2in1">
                   <svg
@@ -77,7 +91,8 @@ export default function Content() {
                   >
                     <path d="M12 6c1.11 0 2-.9 2-2 0-.38-.1-.73-.29-1.03L12 0l-1.71 2.97c-.19.3-.29.65-.29 1.03 0 1.1.9 2 2 2zm6 3h-5V7h-2v2H6c-1.66 0-3 1.34-3 3v9c0 .55.45 1 1 1h16c.55 0 1-.45 1-1v-9c0-1.66-1.34-3-3-3zm1 11H5v-3c.9-.01 1.76-.37 2.4-1.01l1.09-1.07 1.07 1.07c1.31 1.31 3.59 1.3 4.89 0l1.08-1.07 1.07 1.07c.64.64 1.5 1 2.4 1.01v3zm0-4.5c-.51-.01-.99-.2-1.35-.57l-2.13-2.13-2.14 2.13c-.74.74-2.03.74-2.77 0L8.48 12.8l-2.14 2.13c-.35.36-.83.56-1.34.57V12c0-.55.45-1 1-1h12c.55 0 1 .45 1 1v3.5z"></path>
                   </svg>
-                  22
+                  {/* 22 */}
+                  {displayedUser?.age}
                 </div>
                 <div
                   title="Last seen on co-founder matching"
@@ -92,7 +107,8 @@ export default function Content() {
                     <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"></path>
                     <path d="M12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z"></path>
                   </svg>
-                  Last seen 18 days ago
+                  {/* Last seen 18 days ago */}
+                  {displayedUser?.lastSeen}
                 </div>
               </p>
               <p class="css-1akxo02 e10og2in0"></p>
@@ -103,17 +119,32 @@ export default function Content() {
             <div class="css-1m1qrud emdr5n1">
               <div class="css-cyoc3t">
                 <p class="css-r7q7qr">
+                  I'm{" "}
+                  <b>
+                    {displayedUser?.technical === "yes"
+                      ? "technical"
+                      : "not technical"}
+                  </b>{" "}
+                  and <span>{displayedUser?.hasIdeas}</span>
+                  {/* <span>
+                    <b>have some ideas</b>, but I'm also open to exploring other
+                    ideas
+                  </span> */}
+                  .
+                </p>
+                {/* <p class="css-r7q7qr">
                   I'm <b>technical</b>, <b>passively looking</b>, and{" "}
                   <span>
                     <b>have some ideas</b>, but I'm also open to exploring other
                     ideas
                   </span>
                   .
-                </p>
+                </p> */}
                 <p>
-                  I'm willing to do <b>Engineering</b>,{" "}
+                  I'm willing to do <b>{displayedUser?.willingToDo}</b>.
+                  {/* <b>Engineering</b>,{" "}
                   <b>Sales and marketing</b>, <b>Product</b>, and{" "}
-                  <b>Operations</b>.
+                  <b>Operations</b>. */}
                 </p>
               </div>
             </div>
@@ -131,23 +162,10 @@ export default function Content() {
                   <tr>
                     <td colspan="2">
                       <span class="css-19yrmx8">Intro</span>
-                      <div class="css-1tp1ukf">
-                        Hi, I'm Gil Dexter, a recent college grad seeking a
-                        cofounder. I studied math and computer science, but my
-                        internship experience is in finance. Despite my efforts
-                        to develop a passion there, my true interest lies in
-                        athletics and human performance. I've been a competitive
-                        rower for the past six years, a journey that has taken
-                        me to Japan, taught me about the human body (and
-                        myself), and given me a sense of purpose. I want to find
-                        that same purpose by becoming an entrepreneur in the
-                        wellness, athletic, and performance technology space.
-                        I'm looking for someone with similar interests to take
-                        that step—or leap—with me.
-                      </div>
+                      <div class="css-1tp1ukf">{displayedUser?.intro}</div>
                     </td>
                   </tr>
-                  <tr>
+                  {/* <tr>
                     <td colspan="2">
                       <div
                         class="css-19yrmx8"
@@ -170,7 +188,7 @@ export default function Content() {
                         positive impact on the lives of those around me.
                       </div>
                     </td>
-                  </tr>
+                  </tr> */}
                   <tr>
                     <td colspan="2">
                       <div
@@ -182,18 +200,10 @@ export default function Content() {
                       >
                         Free Time
                       </div>
-                      <div class="css-1tp1ukf">
-                        I'm passionate about fitness, philosophy, and coffee,
-                        among other things. I tend to dive deeply into the
-                        things I'm passionate about: I won't bore you with the
-                        details of my coffee obsession. I I enjoy hearing about
-                        other people's niche interests, too. I'd love to work
-                        alongside someone with tangible passions outside of
-                        their work.
-                      </div>
+                      <div class="css-1tp1ukf">{displayedUser?.freeTime}</div>
                     </td>
                   </tr>
-                  <tr>
+                  {/* <tr>
                     <td colspan="2">
                       <div
                         class="css-19yrmx8"
@@ -214,7 +224,7 @@ export default function Content() {
                         something, I dive in to the point of fault.
                       </div>
                     </td>
-                  </tr>
+                  </tr> */}
                 </tbody>
               </table>
             </div>
@@ -233,7 +243,7 @@ export default function Content() {
                     <td colspan="2">
                       <span class="css-19yrmx8">Impressive accomplishment</span>
                       <div class="css-1tp1ukf">
-                        I won the D1 national championship for rowing in 2022!
+                        {displayedUser?.accomplishment}
                       </div>
                     </td>
                   </tr>
@@ -252,16 +262,15 @@ export default function Content() {
                         <ul>
                           <li>
                             <div class="css-kaq1dv">
-                              Columbia University, Mathematics and Computer
-                              Science (BA), 2024
+                              {displayedUser?.education}
                             </div>
                           </li>
-                          <li>
+                          {/* <li>
                             <div class="css-kaq1dv">
                               University of Cambridge, Mathematics (MASt),
                               Projected 2025
                             </div>
-                          </li>
+                          </li> */}
                         </ul>
                       </div>
                     </td>
@@ -281,8 +290,7 @@ export default function Content() {
                         <ul>
                           <li>
                             <div class="css-kaq1dv">
-                              Goldman Sachs, Quantitative Strategy Summer
-                              Analyst, 2023
+                              {displayedUser?.employment}
                             </div>
                           </li>
                         </ul>
@@ -305,18 +313,7 @@ export default function Content() {
                 <tbody>
                   <tr>
                     <td colspan="2">
-                      <div class="css-1hla380">
-                        Here is my most recent idea: A social media platform
-                        transforms self-improvement into a shared, communal
-                        experience by enabling users to synchronize their
-                        activities with friends, fostering a sense of
-                        accountability and support. Unlike other
-                        self-improvement apps that focus on individual progress,
-                        our platform emphasizes collective effort, making
-                        self-improvement more engaging and enjoyable through the
-                        power of social bonds. I'm open to suggestions,
-                        different paths, and completely different ideas!
-                      </div>
+                      <div class="css-1hla380">{displayedUser?.ideas}</div>
                     </td>
                   </tr>
                 </tbody>
@@ -336,7 +333,8 @@ export default function Content() {
                   <tr>
                     <td colspan="2">
                       <div class="css-1hla380">
-                        <p>
+                        {displayedUser?.lookingFor}
+                        {/* <p>
                           Ideally, my co-founder is{" "}
                           <span>
                             <b>technical</b>
@@ -346,11 +344,11 @@ export default function Content() {
                             <b>aligned</b> with my interests
                           </span>
                           .
-                        </p>
+                        </p> */}
                       </div>
                     </td>
                   </tr>
-                  <tr>
+                  {/* <tr>
                     <td colspan="2">
                       <span class="css-19yrmx8">Ideal co-founder</span>
                       <div class="css-1tp1ukf">
@@ -372,7 +370,7 @@ export default function Content() {
                         Equal split is good with me!
                       </div>
                     </td>
-                  </tr>
+                  </tr> */}
                 </tbody>
               </table>
             </div>
@@ -386,7 +384,7 @@ export default function Content() {
                       <span class="css-19yrmx8">Our shared interests</span>
                       <div class="css-1tp1ukf">
                         <span class="css-11urj75">
-                          <div class="css-1v9f1hn ejh47h00">Consumer</div>
+                          {/* <div class="css-1v9f1hn ejh47h00">Consumer</div>
                           <div class="css-1v9f1hn ejh47h00">
                             Education / Edtech
                           </div>
@@ -394,7 +392,16 @@ export default function Content() {
                           <div class="css-1v9f1hn ejh47h00">
                             Food / Beverage
                           </div>
-                          <div class="css-1v9f1hn ejh47h00">E-Commerce</div>
+                          <div class="css-1v9f1hn ejh47h00">E-Commerce</div> */}
+                          {myInterests
+                            .filter((element) =>
+                              displayedUser?.interests
+                                .split(", ")
+                                .includes(element)
+                            )
+                            .map((interest) => (
+                              <div class="css-1v9f1hn ejh47h00">{interest}</div>
+                            ))}
                         </span>
                       </div>
                     </td>
@@ -404,7 +411,7 @@ export default function Content() {
                       <span class="css-19yrmx8">My interests</span>
                       <div class="css-1tp1ukf">
                         <span class="css-11urj75">
-                          <div class="css-1lw35t7 ejh47h00">
+                          {/* <div class="css-1lw35t7 ejh47h00">
                             Biomedical / Biotech
                           </div>
                           <div class="css-1lw35t7 ejh47h00">Healthcare</div>
@@ -416,7 +423,12 @@ export default function Content() {
                           </div>
                           <div class="css-1lw35t7 ejh47h00">
                             B2B / Enterprise
-                          </div>
+                          </div> */}
+                          {displayedUser?.interests
+                            .split(", ")
+                            .map((interest) => (
+                              <div class="css-1lw35t7 ejh47h00">{interest}</div>
+                            ))}
                         </span>
                       </div>
                     </td>
@@ -427,7 +439,7 @@ export default function Content() {
           </div>
           <div class="css-1bnvc2f">
             <div
-              title="https://www.linkedin.com/in/gil-dexter-47147b174/"
+              // title="https://www.linkedin.com/in/gil-dexter-47147b174/"
               class="css-107cmgv ekomr440"
             >
               <a>View on LinkedIn</a>
@@ -435,6 +447,7 @@ export default function Content() {
           </div>
         </div>
       </div>
+
       <div class="css-18uz8v e1xhg8ss0">
         <div class="css-nzfpbh efk6n0y0">
           <div class="css-nzfpbh efk6n0y0">
@@ -492,50 +505,10 @@ export default function Content() {
             </div>
           </div>
         </div>
-        <div class="css-tbb4e2 e13d1soq0">
-          <div class="css-1b0go4s e13d1soq1">
-            <div class="css-12d2mry e3ptovr0">
-              <span>Your filters</span>
-              <div class="css-w64z5m e3ptovr1">
-                <a
-                  class="CofounderMatchingCandidate-MuiButtonBase-root CofounderMatchingCandidate-MuiButton-root CofounderMatchingCandidate-jss2 CofounderMatchingCandidate-jss1 CofounderMatchingCandidate-MuiButton-contained CofounderMatchingCandidate-MuiButton-disableElevation"
-                  tabindex="0"
-                  aria-disabled="false"
-                  href="/cofounder-matching/profile?page=3"
-                >
-                  <span class="CofounderMatchingCandidate-MuiButton-label">
-                    Edit
-                  </span>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="css-1y8qtym e13d1soq2">
-            <div class="css-1l2f959 e3ptovr2">
-              <span>
-                Ideally, my co-founder is{" "}
-                <span>
-                  <b>not set</b> on a specific idea
-                </span>
-                ,{" "}
-                <span>
-                  <b>technical</b>
-                </span>
-                , and{" "}
-                <span>
-                  in my region (<b>North America</b>)
-                </span>
-                .
-              </span>
-            </div>
-            <div class="css-1l2f959 e3ptovr2">
-              <span>
-                I want a co-founder willing to be responsible for{" "}
-                <b>Engineering</b>.
-              </span>
-            </div>
-          </div>
-        </div>
+
+        <SearchFilter setSearchTerm={setSearchTerm} />
+
+        {/* Warning section */}
         <div class="css-3ihjoy">
           <p>
             Please do not contact anyone outside the Startup School platform
@@ -547,6 +520,7 @@ export default function Content() {
             than actively seeking a co-founder.
           </div>
         </div>
+
         <div class="css-1mgo38q efk6n0y1">
           <div class="css-nzfpbh efk6n0y0">
             <div class="css-1xbzuoj e1qryfvo2">

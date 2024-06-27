@@ -8,9 +8,12 @@ import Content from "./content";
 function ProfilesList() {
   const [loading, setLoading] = useState(true);
   const [loadedProfiles, setLoadedProfiles] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [displayedUser, setDisplayedUser] = useState(null);
 
   useEffect(() => {
-    const apiEndpoint = "/api/profiles";
+    setLoading(true);
+    const apiEndpoint = `/api/profiles?search_term=${searchTerm}`;
     fetch(apiEndpoint)
       .then((response) => response.json())
       .then((data) => {
@@ -18,8 +21,16 @@ function ProfilesList() {
         setLoadedProfiles(data.profiles);
         setLoading(false);
       });
-  }, []);
+  }, [searchTerm]);
 
+  // useEffect(() => {
+  //   console.log("search term changed", searchTerm);
+  // }, [searchTerm]);
+  useEffect(() => {
+    if (loadedProfiles?.length > 0) {
+      setDisplayedUser(loadedProfiles[0]);
+    }
+  }, [loadedProfiles]);
   //   if (loading) {
   //     return <div>Loading...</div>;
   //   } else {
@@ -65,7 +76,11 @@ function ProfilesList() {
         <div class="top-container">
           <div>
             <div class="css-8hkyk1">
-              <Content />
+              <Content
+                displayedUser={displayedUser}
+                setDisplayedUser={setDisplayedUser}
+                setSearchTerm={setSearchTerm}
+              />
             </div>
           </div>
         </div>
