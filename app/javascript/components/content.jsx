@@ -8,6 +8,8 @@ export default function Content({
   setSearchTerm,
   onClickNext,
   numberOfResults,
+  onClickBack,
+  onClickFilterSuggestion,
 }) {
   const myInterests = [
     "Consumer",
@@ -21,7 +23,7 @@ export default function Content({
     <div class="css-kg8wej e1ha82nc1">
       <div class="css-m9g13j e1ha82nc5">
         <div class="css-10cl0k7">
-          <button class="css-ypwl68 ezadhj70">
+          <button onClick={onClickBack} class="css-ypwl68 ezadhj70">
             <svg
               class="CofounderMatchingCandidate-MuiSvgIcon-root"
               focusable="false"
@@ -82,7 +84,6 @@ export default function Content({
                   >
                     <path d="M12 12c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm6-1.8C18 6.57 15.35 4 12 4s-6 2.57-6 6.2c0 2.34 1.95 5.44 6 9.14 4.05-3.7 6-6.8 6-9.14zM12 2c4.2 0 8 3.22 8 8.2 0 3.32-2.67 7.25-8 11.8-5.33-4.55-8-8.48-8-11.8C4 5.22 7.8 2 12 2z"></path>
                   </svg>
-                  {/* New York, NY, USA */}
                   {displayedUser?.location}
                 </div>
                 <div title="Age" class="css-1dnaxzp e10og2in1">
@@ -94,7 +95,6 @@ export default function Content({
                   >
                     <path d="M12 6c1.11 0 2-.9 2-2 0-.38-.1-.73-.29-1.03L12 0l-1.71 2.97c-.19.3-.29.65-.29 1.03 0 1.1.9 2 2 2zm6 3h-5V7h-2v2H6c-1.66 0-3 1.34-3 3v9c0 .55.45 1 1 1h16c.55 0 1-.45 1-1v-9c0-1.66-1.34-3-3-3zm1 11H5v-3c.9-.01 1.76-.37 2.4-1.01l1.09-1.07 1.07 1.07c1.31 1.31 3.59 1.3 4.89 0l1.08-1.07 1.07 1.07c.64.64 1.5 1 2.4 1.01v3zm0-4.5c-.51-.01-.99-.2-1.35-.57l-2.13-2.13-2.14 2.13c-.74.74-2.03.74-2.77 0L8.48 12.8l-2.14 2.13c-.35.36-.83.56-1.34.57V12c0-.55.45-1 1-1h12c.55 0 1 .45 1 1v3.5z"></path>
                   </svg>
-                  {/* 22 */}
                   {displayedUser?.age}
                 </div>
                 <div
@@ -110,7 +110,6 @@ export default function Content({
                     <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"></path>
                     <path d="M12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z"></path>
                   </svg>
-                  {/* Last seen 18 days ago */}
                   {displayedUser?.lastseen}
                 </div>
               </p>
@@ -128,26 +127,11 @@ export default function Content({
                       ? "technical"
                       : "not technical"}
                   </b>{" "}
-                  and <span>{displayedUser?.hasideas}</span>
-                  {/* <span>
-                    <b>have some ideas</b>, but I'm also open to exploring other
-                    ideas
-                  </span> */}
-                  .
+                  and <span>{displayedUser?.hasideas}</span>.
                 </p>
-                {/* <p class="css-r7q7qr">
-                  I'm <b>technical</b>, <b>passively looking</b>, and{" "}
-                  <span>
-                    <b>have some ideas</b>, but I'm also open to exploring other
-                    ideas
-                  </span>
-                  .
-                </p> */}
+
                 <p>
                   I'm willing to do <b>{displayedUser?.willingtodo}</b>.
-                  {/* <b>Engineering</b>,{" "}
-                  <b>Sales and marketing</b>, <b>Product</b>, and{" "}
-                  <b>Operations</b>. */}
                 </p>
               </div>
             </div>
@@ -168,30 +152,7 @@ export default function Content({
                       <div class="css-1tp1ukf">{displayedUser?.intro}</div>
                     </td>
                   </tr>
-                  {/* <tr>
-                    <td colspan="2">
-                      <div
-                        class="css-19yrmx8"
-                        style={{
-                          paddingTop: 20,
-                          marginBottom: 0,
-                        }}
-                      >
-                        Life Story
-                      </div>
-                      <div class="css-1tp1ukf">
-                        Athletics have been a driving force since the end of
-                        high school. Like in school, success is simple: hard
-                        work and consistency lead to success. Teamwork is also a
-                        key component - my greatest failures in sport and school
-                        have taught me the importance of both assisting and
-                        leaning on others. These journeys have also taught me
-                        that I need a sense of greater purpose to be "happy". I
-                        want to create a business that will have a tangible
-                        positive impact on the lives of those around me.
-                      </div>
-                    </td>
-                  </tr> */}
+
                   <tr>
                     <td colspan="2">
                       <div
@@ -206,28 +167,6 @@ export default function Content({
                       <div class="css-1tp1ukf">{displayedUser?.free}</div>
                     </td>
                   </tr>
-                  {/* <tr>
-                    <td colspan="2">
-                      <div
-                        class="css-19yrmx8"
-                        style={{
-                          paddingTop: 20,
-                          marginBottom: 0,
-                        }}
-                      >
-                        Other
-                      </div>
-                      <div class="css-1tp1ukf">
-                        I'm an extroverted introvert: I function perfectly fine
-                        alone but I enjoy the company of others. I like to ask
-                        questions and argue. Dialectic can help get closer to
-                        truth, even if it doesn't truly exist. I don't know
-                        exactly what I want to do, but when I find the right
-                        path, I will be all in. When I'm passionate about
-                        something, I dive in to the point of fault.
-                      </div>
-                    </td>
-                  </tr> */}
                 </tbody>
               </table>
             </div>
@@ -268,12 +207,6 @@ export default function Content({
                               {displayedUser?.education}
                             </div>
                           </li>
-                          {/* <li>
-                            <div class="css-kaq1dv">
-                              University of Cambridge, Mathematics (MASt),
-                              Projected 2025
-                            </div>
-                          </li> */}
                         </ul>
                       </div>
                     </td>
@@ -335,45 +268,9 @@ export default function Content({
                 <tbody>
                   <tr>
                     <td colspan="2">
-                      <div class="css-1hla380">
-                        {displayedUser?.lookingfor}
-                        {/* <p>
-                          Ideally, my co-founder is{" "}
-                          <span>
-                            <b>technical</b>
-                          </span>
-                          <span> and </span>
-                          <span>
-                            <b>aligned</b> with my interests
-                          </span>
-                          .
-                        </p> */}
-                      </div>
+                      <div class="css-1hla380">{displayedUser?.lookingfor}</div>
                     </td>
                   </tr>
-                  {/* <tr>
-                    <td colspan="2">
-                      <span class="css-19yrmx8">Ideal co-founder</span>
-                      <div class="css-1tp1ukf">
-                        Someone who likes to ideate, but knows when to take
-                        action. They should be intellectually curious and
-                        willing to re-evaluate opinions. I want to make work fun
-                        - even though it will be challenging - and I hope they
-                        can too. Exceptional technical skills would be a big
-                        plus: I can code, but I don't have true software
-                        engineering experience. I want to get my hands dirty but
-                        likely cannot lead product development.
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td colspan="2">
-                      <span class="css-19yrmx8">Equity expectations</span>
-                      <div class="css-1tp1ukf">
-                        Equal split is good with me!
-                      </div>
-                    </td>
-                  </tr> */}
                 </tbody>
               </table>
             </div>
@@ -387,15 +284,6 @@ export default function Content({
                       <span class="css-19yrmx8">Our shared interests</span>
                       <div class="css-1tp1ukf">
                         <span class="css-11urj75">
-                          {/* <div class="css-1v9f1hn ejh47h00">Consumer</div>
-                          <div class="css-1v9f1hn ejh47h00">
-                            Education / Edtech
-                          </div>
-                          <div class="css-1v9f1hn ejh47h00">Entertainment</div>
-                          <div class="css-1v9f1hn ejh47h00">
-                            Food / Beverage
-                          </div>
-                          <div class="css-1v9f1hn ejh47h00">E-Commerce</div> */}
                           {myInterests
                             .filter((element) =>
                               displayedUser?.interests
@@ -414,19 +302,6 @@ export default function Content({
                       <span class="css-19yrmx8">My interests</span>
                       <div class="css-1tp1ukf">
                         <span class="css-11urj75">
-                          {/* <div class="css-1lw35t7 ejh47h00">
-                            Biomedical / Biotech
-                          </div>
-                          <div class="css-1lw35t7 ejh47h00">Healthcare</div>
-                          <div class="css-1lw35t7 ejh47h00">
-                            Travel / Tourism
-                          </div>
-                          <div class="css-1lw35t7 ejh47h00">
-                            Real Estate / Proptech
-                          </div>
-                          <div class="css-1lw35t7 ejh47h00">
-                            B2B / Enterprise
-                          </div> */}
                           {displayedUser?.interests
                             .split(", ")
                             .map((interest) => (
@@ -441,10 +316,7 @@ export default function Content({
             </div>
           </div>
           <div class="css-1bnvc2f">
-            <div
-              // title="https://www.linkedin.com/in/gil-dexter-47147b174/"
-              class="css-107cmgv ekomr440"
-            >
+            <div class="css-107cmgv ekomr440">
               <a>View on LinkedIn</a>
             </div>
           </div>
@@ -474,7 +346,6 @@ export default function Content({
                 <textarea
                   placeholder='If you&apos;re excited about potentially working with this co-founder, type a short message here and click "Invite."'
                   class="css-1z3uvv"
-                  // style="height: 208px !important;"
                 ></textarea>
                 <div class="css-1qhci44 e1qryfvo3">
                   <div class="css-2imjyh">
@@ -517,6 +388,7 @@ export default function Content({
           searchTerm={searchTerm}
           setSearchTerm={setSearchTerm}
           numberOfResults={numberOfResults}
+          onClickFilterSuggestion={onClickFilterSuggestion}
         />
 
         {/* Warning section */}
@@ -554,7 +426,6 @@ export default function Content({
                 <textarea
                   placeholder='If you&apos;re excited about potentially working with this co-founder, type a short message here and click "Invite."'
                   class="css-1z3uvv"
-                  // style="height: 114px !important;"
                 ></textarea>
                 <div class="css-1qhci44 e1qryfvo3">
                   <div class="css-2imjyh">

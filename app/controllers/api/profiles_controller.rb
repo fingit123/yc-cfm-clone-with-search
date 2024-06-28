@@ -32,7 +32,6 @@ module Api
             if search_term.blank?
                 Profile.all
             else
-                # Profile.where("free ILIKE :search_term OR education ILIKE :search_term", search_term: "%#{search_term}%")
                 Profile.where("location ILIKE :search_term OR education ILIKE :search_term OR intro ILIKE :search_term OR free ILIKE :search_term OR accomplishment ILIKE :search_term OR employment ILIKE :search_term OR ideas ILIKE :search_term", search_term: "%#{search_term}%")
             end
         end

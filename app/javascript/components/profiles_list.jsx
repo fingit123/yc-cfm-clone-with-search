@@ -10,7 +10,6 @@ function ProfilesList() {
   const [loadedProfiles, setLoadedProfiles] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [displayedUser, setDisplayedUser] = useState(null);
-  const [count, setCount] = useState(1);
   const [numberOfResults, setNumberOfResults] = useState(null);
 
   useEffect(() => {
@@ -20,71 +19,38 @@ function ProfilesList() {
       .then((response) => response.json())
       .then((data) => {
         console.log("data", data);
-        setLoadedProfiles(data.profiles);
+        setLoadedProfiles(
+          data.profiles.map((profile, index) => ({ index, ...profile }))
+        );
+        // setLoadedProfiles(data.profiles);
         setNumberOfResults(data?.profiles?.length);
         setLoading(false);
       });
   }, [searchTerm]);
 
-  // useEffect(() => {
-  //   console.log("search term changed", searchTerm);
-  // }, [searchTerm]);
   useEffect(() => {
     if (loadedProfiles?.length > 0) {
       setDisplayedUser(loadedProfiles[0]);
     }
   }, [loadedProfiles]);
-  //   if (loading) {
-  //     return <div>Loading...</div>;
-  //   } else {
-  //     return (
-  //       <>
-  //         {loadedProfiles.map((profile, index) => {
-  //           <div>{profile.name}</div>;
-  //         })}
-  //       </>
-  //     );
-  //   }
 
   const onClickNext = () => {
-    // if (count === 0) {
-    //   console.log("count was 0");
-    //   setCount(count + 1);
-    //   setDisplayedUser(loadedProfiles[count]);
-    // } else {
-    // }
-    setCount(count + 1);
-    console.log("displayedUserIndexState", count);
-    setDisplayedUser(loadedProfiles[count]);
+    if (displayedUser.index < loadedProfiles.length - 1) {
+      setDisplayedUser(loadedProfiles[displayedUser.index + 1]);
+    }
+  };
+
+  const onClickBack = () => {
+    if (displayedUser.index > 0) {
+      setDisplayedUser(loadedProfiles[displayedUser.index - 1]);
+    }
+  };
+
+  const onClickFilterSuggestion = (suggestion) => {
+    setSearchTerm(suggestion);
   };
 
   return (
-    // <div>
-    //   {loading ? (
-    //     "loading"
-    //   ) : (
-    //     <>
-    //       {loadedProfiles.length > 0 && (
-    //         <p
-    //           style={{
-    //             color: "red",
-
-    //             backgroundColor: "#bb6c69",
-    //             // backgroundColor:
-    //             //     ? "#3777f0"
-    //             //     : "lightgrey",
-    //             padding: 5,
-    //             borderRadius: 5,
-    //           }}
-    //         >
-    //           Loaded
-    //           {loadedProfiles[0].name}
-    //         </p>
-    //       )}
-    //     </>
-    //   )}
-    // </div>
-
     <div class="navigation-parent">
       <Menu />
       <div class="page-content">
@@ -98,6 +64,8 @@ function ProfilesList() {
                 setSearchTerm={setSearchTerm}
                 onClickNext={onClickNext}
                 numberOfResults={numberOfResults}
+                onClickBack={onClickBack}
+                onClickFilterSuggestion={onClickFilterSuggestion}
               />
             </div>
           </div>

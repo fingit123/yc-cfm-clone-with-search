@@ -633,7 +633,7 @@ profiles = Profile.create([
     {
         "name": "Lily Wright",
         "profilepic": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-qNTffRsNfgsUnMqDEN-oyFY4-EWPvYK3vw98eiiLYSfq60R-GH6HKxCU&s=10",
-        "location": "Lisbon, Portugal",
+        "location": "San Francisco, CA, USA",
         "age": 26,
         "lastseen": "3 days ago",
         "intro": "Olá! I'm Maria, a biomedical engineer passionate about developing medical devices that improve patient care and enhance healthcare outcomes. My background in biomedical engineering from Universidade de Lisboa has prepared me to innovate in the healthcare technology sector and design life-saving solutions.",
@@ -793,11 +793,11 @@ profiles = Profile.create([
     {
         "name": "Ruby Carter",
         "profilepic": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaECo_CFJdJlh-HGtGv0HGflbEwoGGJQc5jauaOACVRRO5c7fIpGcuPlCY&s=10",
-        "location": "Dubai, UAE",
+        "location": "San Francisco, USA",
         "age": 29,
         "lastseen": "2 days ago",
         "intro": "Hello! I'm Leila, a fintech strategist passionate about transforming financial services through innovation and technology. My background in finance and fintech from the American University in Dubai has prepared me to navigate the evolving landscape of digital banking and blockchain solutions.",
-        "free": "Outside of financial strategy, I enjoy playing tennis, exploring Dubai's cultural scene, and mentoring young entrepreneurs. I'm also an advocate for financial literacy and participate in workshops that promote economic empowerment.",
+        "free": "Outside of financial strategy, I enjoy playing tennis, exploring Dubai's cultural scene, and mentoring young entrepreneurs. I'm also an advocate for financial literacy and participate in workshops that promote economic empowerment. I am currently located in San Francisco and would love to connect with others in the area!",
         "accomplishment": "Launched a mobile payment platform that gained 100,000 users within the first year of operation.",
         "education": "American University in Dubai, Finance & Fintech (BSc), 2014",
         "employment": "Fintech Strategist, 2015-present",

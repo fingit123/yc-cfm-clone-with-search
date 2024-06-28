@@ -7,7 +7,7 @@ export default function Menu() {
       <div class="css-10im0eh">
         <div class="css-15thcut">
           <div class="css-1mmtv2s">
-            <a href="/" role="button" tabindex="-1" class="css-x9b4hl">
+            <a role="button" tabindex="-1" class="css-x9b4hl">
               <div class="css-oi7uuu">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -30,12 +30,7 @@ export default function Menu() {
 
           {/* Dashboard */}
           <div class="css-1mmtv2s">
-            <a
-              href="/cofounder-matching"
-              role="button"
-              tabindex="-1"
-              class="css-1k022gb"
-            >
+            <a role="button" tabindex="-1" class="css-1k022gb">
               <div class="css-oi7uuu">
                 <svg
                   width="22"
@@ -57,12 +52,7 @@ export default function Menu() {
 
           {/* Discover Profiles */}
           <div class="css-1mmtv2s">
-            <a
-              href="/cofounder-matching/candidate/next"
-              role="button"
-              tabindex="-1"
-              class="css-1k022gb"
-            >
+            <a role="button" tabindex="-1" class="css-1k022gb">
               <div class="css-oi7uuu">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -80,12 +70,7 @@ export default function Menu() {
             </a>
           </div>
           <div class="css-1mmtv2s">
-            <a
-              href="/cofounder-matching/saved-profiles"
-              role="button"
-              tabindex="-1"
-              class="css-1k022gb"
-            >
+            <a role="button" tabindex="-1" class="css-1k022gb">
               <div class="css-oi7uuu">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -122,12 +107,7 @@ export default function Menu() {
             </a>
           </div>
           <div class="css-1mmtv2s">
-            <a
-              href="/cofounder-matching/inbox"
-              role="button"
-              tabindex="-1"
-              class="css-1k022gb"
-            >
+            <a role="button" tabindex="-1" class="css-1k022gb">
               <div class="css-oi7uuu">
                 <div class="css-en6f19"></div>
                 <svg
@@ -166,13 +146,7 @@ export default function Menu() {
           </div>
 
           <div class="css-1mmtv2s">
-            <a
-              href="https://docs.google.com/document/d/1rXUOP-FcnIE8eNTkKlELkakZ-MLaIvEyIxUlBOLNZPw"
-              target="_blank"
-              role="button"
-              tabindex="-1"
-              class="css-1k022gb"
-            >
+            <a target="_blank" role="button" tabindex="-1" class="css-1k022gb">
               <div class="css-oi7uuu">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -192,13 +166,7 @@ export default function Menu() {
 
           {/* Curriculum */}
           <div class="css-1mmtv2s">
-            <a
-              href="https://docs.google.com/document/d/1rXUOP-FcnIE8eNTkKlELkakZ-MLaIvEyIxUlBOLNZPw"
-              target="_blank"
-              role="button"
-              tabindex="-1"
-              class="css-1k022gb"
-            >
+            <a target="_blank" role="button" tabindex="-1" class="css-1k022gb">
               <div class="css-oi7uuu">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -236,12 +204,7 @@ export default function Menu() {
           </div>
 
           <div class="css-1mmtv2s">
-            <a
-              href="/cofounder-matching/profile"
-              role="button"
-              tabindex="-1"
-              class="css-1k022gb"
-            >
+            <a role="button" tabindex="-1" class="css-1k022gb">
               <div class="css-oi7uuu">
                 <img
                   src="https://bookface-images.s3.amazonaws.com/avatars/ddef86b87cb5d6ce142f7d20f7ad171a63cfec84.jpg"
