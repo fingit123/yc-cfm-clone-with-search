@@ -9,6 +9,21 @@
 }
 
 /* Search filter */
+button._plain_86jzd_125 {
+  background: transparent;
+  padding: 0;
+  border: 0;
+  margin: 0;
+}
+._activeFacet_86jzd_310 {
+  display: inline-block;
+  border: 1px solid #d3d3d3;
+  /* border: 1px solid red; */
+  padding: 5px 12px;
+  border-radius: 16px;
+  font-size: 13px;
+  margin-bottom: 10px;
+}
 .main-search {
   border-radius: 5px;
   /* border-radius: 10px; */

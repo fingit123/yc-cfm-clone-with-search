@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from "react";
 
-export default function SearchFilter({ setSearchTerm }) {
+export default function SearchFilter({
+  searchTerm,
+  setSearchTerm,
+  numberOfResults,
+}) {
   return (
     <>
       {/* new search filter */}
@@ -49,11 +53,33 @@ export default function SearchFilter({ setSearchTerm }) {
               .
             </span> */}
           </div>
+          {searchTerm !== "" && (
+            <div
+              style={{
+                fontSize: 12,
+                fontWeight: "bold",
+                paddingLeft: 5,
+                paddingBottom: 10,
+              }}
+            >
+              Results: {numberOfResults}
+            </div>
+          )}
+          {searchTerm !== "" && (
+            <span class="_activeFacet_86jzd_310">
+              <span>
+                {searchTerm}
+                {"  "}
+              </span>
+              <button class="_plain_86jzd_125">✕</button>
+            </span>
+          )}
           <div class="css-1l2f959 e3ptovr2">
             {/* <span>
               I want a co-founder willing to be responsible for{" "}
               <b>Engineering</b>.
             </span> */}
+
             <div class="button-row">
               <div class="emoji-button row align-center">🧠 AI</div>
               <div class="emoji-button row align-center">📊 B2B</div>

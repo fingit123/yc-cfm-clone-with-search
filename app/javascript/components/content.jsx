@@ -4,7 +4,10 @@ import SearchFilter from "./searchFilter";
 export default function Content({
   displayedUser,
   setDisplayedUser,
+  searchTerm,
   setSearchTerm,
+  onClickNext,
+  numberOfResults,
 }) {
   const myInterests = [
     "Consumer",
@@ -47,7 +50,7 @@ export default function Content({
         <div class="css-139x40p">
           <div class="css-ylm4ro">
             <img
-              src="https://bookface-images.s3.amazonaws.com/avatars/068739649e3f36deac0f28f4ddc4ddbcb4ecc527.jpg"
+              src={displayedUser?.profilepic}
               height="150"
               width="150"
               alt="candidate avatar"
@@ -108,7 +111,7 @@ export default function Content({
                     <path d="M12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z"></path>
                   </svg>
                   {/* Last seen 18 days ago */}
-                  {displayedUser?.lastSeen}
+                  {displayedUser?.lastseen}
                 </div>
               </p>
               <p class="css-1akxo02 e10og2in0"></p>
@@ -125,7 +128,7 @@ export default function Content({
                       ? "technical"
                       : "not technical"}
                   </b>{" "}
-                  and <span>{displayedUser?.hasIdeas}</span>
+                  and <span>{displayedUser?.hasideas}</span>
                   {/* <span>
                     <b>have some ideas</b>, but I'm also open to exploring other
                     ideas
@@ -141,7 +144,7 @@ export default function Content({
                   .
                 </p> */}
                 <p>
-                  I'm willing to do <b>{displayedUser?.willingToDo}</b>.
+                  I'm willing to do <b>{displayedUser?.willingtodo}</b>.
                   {/* <b>Engineering</b>,{" "}
                   <b>Sales and marketing</b>, <b>Product</b>, and{" "}
                   <b>Operations</b>. */}
@@ -200,7 +203,7 @@ export default function Content({
                       >
                         Free Time
                       </div>
-                      <div class="css-1tp1ukf">{displayedUser?.freeTime}</div>
+                      <div class="css-1tp1ukf">{displayedUser?.free}</div>
                     </td>
                   </tr>
                   {/* <tr>
@@ -333,7 +336,7 @@ export default function Content({
                   <tr>
                     <td colspan="2">
                       <div class="css-1hla380">
-                        {displayedUser?.lookingFor}
+                        {displayedUser?.lookingfor}
                         {/* <p>
                           Ideally, my co-founder is{" "}
                           <span>
@@ -488,7 +491,11 @@ export default function Content({
               </div>
             </div>
             <div class="css-1t0990z">
-              <button color="gray" class="css-eaxdrh e1qryfvo1">
+              <button
+                color="gray"
+                class="css-eaxdrh e1qryfvo1"
+                onClick={onClickNext}
+              >
                 Skip for now
               </button>
             </div>
@@ -506,7 +513,11 @@ export default function Content({
           </div>
         </div>
 
-        <SearchFilter setSearchTerm={setSearchTerm} />
+        <SearchFilter
+          searchTerm={searchTerm}
+          setSearchTerm={setSearchTerm}
+          numberOfResults={numberOfResults}
+        />
 
         {/* Warning section */}
         <div class="css-3ihjoy">

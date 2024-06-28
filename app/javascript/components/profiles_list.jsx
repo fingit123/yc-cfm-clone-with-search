@@ -10,6 +10,8 @@ function ProfilesList() {
   const [loadedProfiles, setLoadedProfiles] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [displayedUser, setDisplayedUser] = useState(null);
+  const [count, setCount] = useState(1);
+  const [numberOfResults, setNumberOfResults] = useState(null);
 
   useEffect(() => {
     setLoading(true);
@@ -19,6 +21,7 @@ function ProfilesList() {
       .then((data) => {
         console.log("data", data);
         setLoadedProfiles(data.profiles);
+        setNumberOfResults(data?.profiles?.length);
         setLoading(false);
       });
   }, [searchTerm]);
@@ -42,6 +45,18 @@ function ProfilesList() {
   //       </>
   //     );
   //   }
+
+  const onClickNext = () => {
+    // if (count === 0) {
+    //   console.log("count was 0");
+    //   setCount(count + 1);
+    //   setDisplayedUser(loadedProfiles[count]);
+    // } else {
+    // }
+    setCount(count + 1);
+    console.log("displayedUserIndexState", count);
+    setDisplayedUser(loadedProfiles[count]);
+  };
 
   return (
     // <div>
@@ -79,7 +94,10 @@ function ProfilesList() {
               <Content
                 displayedUser={displayedUser}
                 setDisplayedUser={setDisplayedUser}
+                searchTerm={searchTerm}
                 setSearchTerm={setSearchTerm}
+                onClickNext={onClickNext}
+                numberOfResults={numberOfResults}
               />
             </div>
           </div>

@@ -6,22 +6,22 @@ module Api
             # profiles = Profile.all.map do |profile|
                 {
                     name: profile.name,
-                    profilePic: profile.profilePic,
+                    profilepic: profile.profilepic,
                     location: profile.location,
                     age: profile.age,
-                    lastSeen: profile.lastSeen,
+                    lastseen: profile.lastseen,
                     intro: profile.intro,
-                    freeTime: profile.freeTime,
+                    free: profile.free,
                     accomplishment: profile.accomplishment,
                     education: profile.education,
                     employment: profile.employment,
                     ideas: profile.ideas,
-                    lookingFor: profile.lookingFor,
-                    linkedIn: profile.linkedIn,
+                    lookingfor: profile.lookingfor,
+                    linkedin: profile.linkedin,
                     technical: profile.technical,
-                    readyWithin: profile.readyWithin,
-                    hasIdeas: profile.hasIdeas,
-                    willingToDo: profile.willingToDo,
+                    readywithin: profile.readywithin,
+                    hasideas: profile.hasideas,
+                    willingtodo: profile.willingtodo,
                     interests: profile.interests,
                 }
             end
@@ -32,7 +32,8 @@ module Api
             if search_term.blank?
                 Profile.all
             else
-                Profile.where("name ILIKE :search_term OR education ILIKE :search_term", search_term: "%#{search_term}%")
+                # Profile.where("free ILIKE :search_term OR education ILIKE :search_term", search_term: "%#{search_term}%")
+                Profile.where("location ILIKE :search_term OR education ILIKE :search_term OR intro ILIKE :search_term OR free ILIKE :search_term OR accomplishment ILIKE :search_term OR employment ILIKE :search_term OR ideas ILIKE :search_term", search_term: "%#{search_term}%")
             end
         end
 
